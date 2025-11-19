@@ -1503,11 +1503,21 @@ body,
   box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
   margin-top: 32px;
 
-  width: 100%;
   min-height: 620px;
   height: auto;
 
   /* CORRECTO (parche final): */
   overflow-y: auto !important;
   overflow-x: hidden !important;
+}
+/* ====== CANVAS SIZES (NECESARIAS PARA VISTA MÓVIL / DESKTOP) ====== */
+
+.os-canvas-desktop {
+  width: 1120px;
+  min-height: 680px;
+}
+
+.os-canvas-mobile {
+  width: 420px;
+  min-height: 780px;
 }
