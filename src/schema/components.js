@@ -7,7 +7,7 @@ export const COMPONENT_SCHEMA = {
     allowedChildren: ["section"],
     defaults: {
       layout: { direction: "vertical", gap: 24, padding: 24 },
-      style: { backgroundColor: "#ffffff" },
+      style: { backgroundColor: "#ffff" },
     },
   },
 

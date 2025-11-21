@@ -1,41 +1,21 @@
-// src/layout/CanvasArea.jsx
+// ============================================================================
+// OSOMAGIC 2.0 — CanvasArea.jsx (VERSIÓN CORRECTA Y FINAL)
+// ============================================================================
+
 import React from "react";
+import CanvasFrame from "./CanvasFrame.jsx";
 import { useEditor } from "../context/EditorContext.jsx";
-import { renderNode } from "../context/Renderer.jsx";
 
-/*
-  CanvasArea PRO
-  -----------------------
-  - Nunca se desborda
-  - Siempre hace scroll
-  - Respeta modo móvil/escritorio
-  - Centrado igual que Lovable
-*/
+export default function CanvasArea() {
 
-const CanvasArea = () => {
-  const { viewMode, layoutTree } = useEditor();
-  const isMobile = viewMode === "mobile";
+  const { layoutTree, viewMode } = useEditor();
 
   return (
-    <main className="os-canvas">
-      <div className="os-canvas-inner">
-        <div
-          className={
-            "os-canvas-surface " +
-            (isMobile ? "os-canvas-mobile" : "os-canvas-desktop")
-          }
-          style={{
-            overflowY: "auto", // evita desbordamiento
-            overflowX: "hidden",
-          }}
-        >
-          {layoutTree && layoutTree.children?.length > 0
-            ? renderNode(layoutTree)
-            : null}
-        </div>
-      </div>
-    </main>
+    <div style={{ width: "100%", height: "100%" }}>
+      <CanvasFrame 
+        layout={layoutTree}
+        deviceMode={viewMode}
+      />
+    </div>
   );
-};
-
-export default CanvasArea;
+}

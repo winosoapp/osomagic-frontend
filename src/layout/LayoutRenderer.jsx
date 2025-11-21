@@ -1,41 +1,39 @@
-// LayoutRenderer.jsx
+// ============================================================================
+// OSOMAGIC 2.0 — LayoutRenderer.jsx (VERSIÓN FINAL, usando TopNav PRO)
+// ============================================================================
+
 import React from "react";
-import TopNav from "./TopNav.jsx";
+import TopNav from "./TopNav.jsx";             // <-- AQUÍ TU TOPNAV REAL
 import LeftSidebar from "./LeftSidebar.jsx";
 import CanvasArea from "./CanvasArea.jsx";
 import BottomChatPanel from "./BottomChatPanel.jsx";
 
-/* ============================================================================
-   🧱 LAYOUT PRINCIPAL DEL EDITOR — Fase 2 Final
-   - Estructura tipo Lovable
-   - Sidebar izquierda (chat)
-   - Canvas centrado
-   - Topbar completo
-   - Chat inferior
-   - Preparado para Fase 3 (IA) y Fase 4 (selección por clic)
-============================================================================ */
-
-const LayoutRenderer = () => {
+export default function LayoutRenderer() {
   return (
     <div className="os-shell">
 
-      {/* 🔶 TOP NAV */}
+      {/* ================= TOPBAR (Tu versión PRO) ================= */}
       <TopNav />
 
-      {/* 🔶 ZONA CENTRAL */}
+      {/* ================= MAIN (Sidebar + Canvas) ================= */}
       <div className="os-main">
 
-        {/* 🔸 Sidebar izquierda */}
+        {/* SIDEBAR IZQUIERDA */}
         <LeftSidebar />
 
-        {/* 🔸 Canvas principal */}
-        <CanvasArea />
+        {/* CANVAS */}
+        <div className="os-canvas">
+          <div className="os-canvas-inner">
+            <div className="os-canvas-surface os-canvas-desktop">
+              <CanvasArea />
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      {/* 🔶 CHAT INFERIOR */}
+      {/* ================= PROMPT BOTTOM ================= */}
       <BottomChatPanel />
     </div>
   );
-};
-
-export default LayoutRenderer;
+}

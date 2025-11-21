@@ -1,4 +1,6 @@
-/* ===== RESET ===== */
+/* ============================================================
+   RESET BÁSICO
+============================================================ */
 
 *,
 *::before,
@@ -12,17 +14,19 @@ body,
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
 }
 
-/* ===== SHELL GENERAL ===== */
+/* ============================================================
+   SHELL GENERAL
+============================================================ */
 
 .os-shell {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background: #f3f4f6;
+  min-height: 100vh;
+  background: #f3f4f6; /* fondo oscuro elegante, estilo editor */
   color: #111827;
 }
 
@@ -30,18 +34,24 @@ body,
   flex: 1;
   display: flex;
   min-height: 0;
+  overflow: hidden;
 }
 
-/* ===== TOPBAR TIPO LOVABLE ===== */
+/* ============================================================
+   TOPBAR — ESTILO LOVABLE / APPLE
+============================================================ */
 
 .os-topbar {
   height: 56px;
+  padding: 0 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
-  border-bottom: 1px solid #e5e7eb;
-  background: #ffffff;
+  gap: 24px;
+  position: relative;
+  z-index: 50;
 }
 
 .os-topbar-left,
@@ -58,144 +68,97 @@ body,
 }
 
 .os-logo-mark {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #2563eb, #22c55e);
+  background: linear-gradient(135deg, #0f172a, #475569);
+  margin-right: 10px;
 }
 
-.os-project-button {
-  border: none;
-  background: transparent;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  color: #111827;
-}
+/* Botón de proyecto */
 
-.os-project-name {
-  font-weight: 500;
-}
-
-.os-project-chevron svg {
-  width: 14px;
-  height: 14px;
-}
-
-/* dropdown proyecto */
-
-.os-project-menu {
-  position: absolute;
-  top: 52px;
-  left: 56px;
-  min-width: 220px;
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-  padding: 6px 0;
-  z-index: 40;
-}
-
-.os-project-menu-section {
-  padding: 4px 0;
-  border-top: 1px solid #f3f4f6;
-}
-
-.os-project-menu-section:first-child {
-  border-top: none;
-}
-
-.os-project-menu-item {
-  width: 100%;
-  padding: 6px 12px;
-  border: none;
-  background: transparent;
-  text-align: left;
-  font-size: 13px;
-  cursor: pointer;
-  color: #111827;
-}
-
-.os-project-menu-item:hover {
-  background: #f3f4f6;
-}
-
-.os-menu-item-title {
-  font-size: 13px;
-}
-
-.os-menu-item-sub {
-  font-size: 12px;
-  color: #6b7280;
-}
-
-/* botones */
-
-.os-btn {
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid #d1d5db;
-  background: #ffffff;
-  font-size: 13px;
-  cursor: pointer;
-  display: inline-flex;
+.os-project-button-modern {
+  display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.os-btn-icon svg {
-  width: 14px;
-  height: 14px;
-}
-
-.os-btn-outline {
-  border-color: #bfdbfe;
-  color: #1d4ed8;
-}
-
-.os-btn-soft {
-  background: #eff6ff;
-  border-color: #dbeafe;
-  color: #1d4ed8;
-}
-
-.os-btn-primary {
-  background: #f97316;
-  border-color: #ea580c;
-  color: #ffffff;
-}
-
-/* activo naranja */
-
-.os-btn-active {
-  background: #f97316;
-  border-color: #ea580c;
-  color: #ffffff;
-}
-
-/* icon buttons */
-
-.os-icon-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
+  padding: 7px 12px;
+  background: #f8fafc;
   border: 1px solid #e5e7eb;
-  background: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.15s ease;
 }
 
-.os-icon-btn svg {
-  width: 16px;
-  height: 16px;
+.os-project-button-modern:hover {
+  background: #f1f5f9;
 }
 
-/* ruta */
+.os-project-name-modern {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* Menú de proyecto */
+
+.os-project-menu-modern {
+  position: absolute;
+  top: 60px;
+  left: 45px;
+  width: 240px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 20px rgba(15, 23, 42, 0.09),
+    0 4px 10px rgba(15, 23, 42, 0.06);
+  padding: 8px 0;
+  animation: fadeIn 0.16s ease-out;
+  z-index: 1000;
+}
+
+.os-project-menu-group {
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.os-project-menu-group:last-child {
+  border-bottom: none;
+}
+
+.os-project-menu-item-modern {
+  width: 100%;
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  background: none;
+  color: #111827;
+  transition: all 0.15s ease;
+}
+
+.os-project-menu-item-modern svg {
+  width: 18px;
+  height: 18px;
+  color: #64748b;
+}
+
+.os-project-menu-item-modern:hover {
+  background: #f8fafc;
+  color: #020617;
+}
+
+.os-project-menu-item-modern:hover svg {
+  color: #020617;
+}
+
+/* Botones superiores (Preview, Share, Publish…) */
 
 .os-topbar-controls {
   display: flex;
@@ -203,268 +166,358 @@ body,
   gap: 8px;
 }
 
-.os-route-wrapper {
+.os-btn-modern-outline {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
-  min-width: 220px;
-}
-
-.os-route-icon {
-  font-size: 12px;
-  color: #6b7280;
-}
-
-.os-route-input {
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 13px;
-  width: 100%;
-}
-
-/* view toggle */
-
-.os-view-toggle {
-  display: inline-flex;
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
-  padding: 2px;
-}
-
-.os-view-toggle-btn {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  border: none;
-  background: transparent;
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #111827;
   cursor: pointer;
-  display: inline-flex;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.os-btn-modern-outline:hover {
+  background: #f3f4f6;
+}
+
+.os-btn-modern-active {
+  border-color: #fb923c !important;
+  color: #fb923c !important;
+}
+
+.os-icon-btn-modern {
+  height: 34px;
+  width: 34px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
-.os-view-toggle-btn svg {
-  width: 16px;
-  height: 16px;
-  stroke: #475569;
+.os-icon-btn-modern:hover {
+  background: #e5e7eb;
 }
 
-.os-view-toggle-btn-active {
+.os-btn-modern-soft {
+  display: flex;
+  height: 36px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  border: 1px solid #dbe2e8;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.os-btn-modern-soft:hover {
+  background: #e2e8f0;
+}
+
+.os-btn-modern-primary {
+  display: flex;
+  height: 36px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: #fb923c;
+  border: 1px solid #f97316;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.os-btn-modern-primary:hover {
   background: #f97316;
 }
 
-.os-view-toggle-btn-active svg {
-  stroke: #ffffff;
+/* Selector de página */
+
+.os-page-selector-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
-/* ===== SIDEPANEL (CHAT ÚNICO, 380px) ===== */
-
-.os-sidepanel {
-  width: 380px;
-  border-right: 1px solid #e5e7eb;
-  background: #fbf9f4;
+.os-page-selector-trigger-modern {
   display: flex;
-  flex-direction: column;
-  padding: 12px 12px 8px 12px;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1e293b;
+  transition: all 0.15s ease;
 }
 
-.os-sidepanel-header {
-  font-size: 13px;
-  color: #6b7280;
-  margin-bottom: 6px;
+.os-page-selector-trigger-modern:hover {
+  background: #eef2f6;
 }
 
-.os-sidepanel-title {
+.os-page-selector-label-modern {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 500;
 }
 
-.os-chat-scroll {
-  flex: 1;
-  overflow-y: auto;
-  padding-right: 4px;
+.os-page-selector-menu-modern {
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 20px rgba(15, 23, 42, 0.09),
+    0 4px 10px rgba(15, 23, 42, 0.05);
+  padding: 6px 0;
+  z-index: 900;
+  animation: fadeIn 0.16s ease-out;
 }
 
-/* filas */
+.os-page-selector-item-modern {
+  width: 100%;
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: all 0.15s ease;
+  color: #1e293b;
+}
+
+.os-page-selector-item-modern:hover {
+  background: #f8fafc;
+}
+
+.os-page-selector-item-modern-active {
+  background: #fff7ed !important;
+  color: #fb923c !important;
+}
+
+/* Toggle vista desktop / mobile */
+
+.os-view-toggle-modern {
+  display: flex;
+  gap: 6px;
+}
+
+.os-view-btn-modern {
+  height: 34px;
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #dbe2e8;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.os-view-btn-modern:hover {
+  background: #e5e7eb;
+}
+
+.os-view-btn-modern-active {
+  background: #fff7ed;
+  border-color: #fb923c;
+  color: #f97316;
+}
+
+/* Animación genérica */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   SIDEBAR (HISTORIAL + CHAT) — 30% ANCHO
+============================================================ */
+
+.os-sidebar {
+  flex: 0 0 30%;
+  max-width: 480px;
+  min-width: 320px;
+  border-right: 1px solid #1f2937;
+  background: #020617;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+
+.os-sidebar-collapsed {
+  flex-basis: 56px !important;
+  max-width: 56px !important;
+  min-width: 56px !important;
+}
+
+/* Header del sidebar */
+
+.os-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px 4px 12px;
+}
+
+.os-sidebar-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #db6300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.os-sidebar-collapse-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #9ca3af;
+}
+
+/* Lista de mensajes */
+
+.os-sidebar-chat-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 8px 8px 10px;
+}
+
+/* Burbujas del chat */
 
 .os-chat-row {
   display: flex;
-  align-items: flex-end;
-  margin-bottom: 6px;
-  gap: 6px;
+  margin-bottom: 8px;
   font-size: 13px;
 }
 
-.os-chat-row-user {
-  justify-content: flex-end;
-}
-
-.os-chat-row-assistant {
+.os-chat-ai {
   justify-content: flex-start;
 }
 
+.os-chat-user {
+  justify-content: flex-end;
+}
+
 .os-chat-avatar {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 999px;
-  background: #e5e7eb;
+  background: #1f2937;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
-  color: #374151;
+  color: #e5e7eb;
+  margin-right: 6px;
 }
 
 .os-chat-avatar-user {
-  background: #fed7aa;
+  background: #fb923c;
+  margin-left: 6px;
+  margin-right: 0;
 }
-
-/* wrapper para poder poner la cola (triángulo) */
 
 .os-chat-bubble-wrapper {
-  max-width: 260px;
-  position: relative;
+  max-width: 70%;
 }
-
-.os-chat-bubble-wrapper-ai {
-  margin-right: auto;
-}
-
-.os-chat-bubble-wrapper-user {
-  margin-left: auto;
-}
-
-/* burbujas con forma WhatsApp + cola triangular */
 
 .os-chat-bubble {
-  padding: 8px 10px 4px 10px;
-  border-radius: 18px;
+  padding: 8px 12px 6px 12px;
+  border-radius: 14px;
   position: relative;
+  line-height: 1.4;
 }
 
 .os-chat-bubble-ai {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  color: #111827;
+  background: #020617;
+  border: 1px solid #1f2937;
+  color: #e5e7eb;
   border-bottom-left-radius: 4px;
 }
 
 .os-chat-bubble-user {
-  background: #ffe8d6; /* naranja muy suave */
-  border: 1px solid #fed7aa;
-  color: #111827;
+  background: #111827;
+  border: 1px solid #1f2937;
+  color: #f9fafb;
   border-bottom-right-radius: 4px;
 }
 
-/* colas triangulares */
-
-.os-chat-bubble-ai::after {
-  content: "";
-  position: absolute;
-  left: -6px;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-top: 6px solid #ffffff;
-  border-left: 6px solid transparent;
+.os-chat-text {
+  margin: 0 0 3px 0;
 }
 
-.os-chat-bubble-user::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-top: 6px solid #ffe8d6;
-  border-right: 6px solid transparent;
-}
-
-.os-chat-bubble p {
-  margin: 0 0 2px 0;
-}
-
-/* hora / fecha en cada burbuja */
-
-.os-chat-timestamp {
-  display: block;
-  text-align: right;
+.os-chat-time {
   font-size: 10px;
-  color: #6b7280;
+  opacity: 0.6;
+  text-align: right;
 }
 
-/* footer lateral */
+/* Footer lateral (chips) */
 
-.os-sidepanel-footer {
+.os-sidebar-footer {
   display: flex;
   gap: 8px;
-  margin-top: 8px;
+  padding: 8px 10px 10px 12px;
 }
 
-.os-footer-pill {
+.os-pill-btn {
   border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #e5e7eb;
   font-size: 12px;
   padding: 4px 10px;
   cursor: pointer;
 }
 
-/* ===== CANVAS BLANCO (BORDES TIPO LOVABLE) ===== */
-
-.os-canvas {
-  flex: 1;
-  padding: 16px 20px 20px 20px;
-  overflow: auto;
-}
-
-.os-canvas-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-/* Rectángulo blanco central */
-.os-canvas-surface {
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
-  margin-top: 32px;
-}
-
-.os-canvas-desktop {
-  width: 1120px;
-  height: 620px;
-}
-
-.os-canvas-mobile {
-  width: 420px;
-  height: 780px;
-}
-
-/* ===== BOTTOM CHAT (PROMPT) ===== */
+/* ============================================================
+   BOTTOM PROMPT — MISMO ANCHO QUE EL SIDEBAR
+============================================================ */
 
 .os-bottom-chat {
   height: 72px;
-  border-top: 1px solid #e5e7eb;
-  background: #fbf9f4;
+  border-top: 1px solid #020617;
+  background: #020617;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   padding-left: 12px;
 }
 
-/* barra del prompt = mismo ancho que el sidebar (380px) */
 .os-bottom-form {
-  width: 380px;
+  width: 30%;
+  max-width: 480px;
+  min-width: 320px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -473,63 +526,81 @@ body,
 .os-bottom-input {
   flex: 1;
   border-radius: 999px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #ffcba0;
   background: #ffffff;
-  padding: 7px 12px;
+  color: #000000;
+  padding: 8px 14px;
   font-size: 13px;
 }
 
-/* botón de enviar: icono en círculo naranja */
+.os-bottom-input::placeholder {
+  color: #6b7280;
+}
+
 .os-send-btn {
   width: 34px;
   height: 34px;
   border-radius: 999px;
-  background: #f97316;
+  background: #fb923c;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background 0.15s ease;
+  color: #ffffff;
 }
 
 .os-send-btn:hover {
-  background: #ea580c;
+  background: #f97316;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ============================================================
+   CANVAS — 70% ANCHO, ESTILO LOVABLE
+============================================================ */
 
-@media (max-width: 1100px) {
-  .os-sidepanel {
-    width: 320px;
-  }
-
-  .os-bottom-form {
-    width: 320px;
-  }
+.os-canvas {
+  flex: 1 1 70%;
+  padding: 20px 24px 24px 24px;
+  overflow: auto;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #020617 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-@media (max-width: 900px) {
-  .os-main {
-    flex-direction: column;
-  }
-
-  .os-sidepanel {
-    width: 100%;
-    height: 220px;
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .os-bottom-form {
-    width: 100%;
-    padding-right: 12px;
-  }
-
-  .os-canvas-inner {
-    padding-top: 12px;
-  }
+.os-canvas-inner {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
-/* ====== CONTENIDO INTERNO DEL CANVAS (LAYOUTS IA) ====== */
+
+/* superficie del "navegador" */
+
+.os-canvas-surface {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.35);
+  margin-top: 32px;
+  overflow: hidden;
+}
+
+/* tamaños según vista */
+
+.os-canvas-desktop {
+  width: 1120px;
+  min-height: 640px;
+}
+
+.os-canvas-mobile {
+  width: 420px;
+  min-height: 780px;
+}
+
+/* Contenido interno del layout generado por IA */
 
 .os-canvas-content {
   width: 100%;
@@ -539,6 +610,9 @@ body,
   flex-direction: column;
   gap: 18px;
 }
+
+/* (todos tus estilos de landing, grids, pricing, etc.
+   los dejo porque ya los tienes y el motor IA los usa) */
 
 .os-section {
   margin-top: 4px;
@@ -573,8 +647,8 @@ body,
 }
 
 .os-small-btn-primary {
-  background: #f97316;
-  border-color: #ea580c;
+  background: #fb923c;
+  border-color: #f97316;
   color: #ffffff;
 }
 
@@ -582,7 +656,7 @@ body,
   background: transparent;
 }
 
-/* KPI grid (dashboard) */
+/* KPI grid */
 
 .os-kpi-grid {
   display: grid;
@@ -647,22 +721,7 @@ body,
 .os-chart-placeholder {
   height: 130px;
   border-radius: 10px;
-  background: #eef2ff;
-}
-
-.os-chart-placeholder.gradient {
-  background: linear-gradient(to top, #dbeafe, #bfdbfe);
-}
-
-.os-chart-placeholder.bars {
-  background: repeating-linear-gradient(
-      to right,
-      #22c55e,
-      #22c55e 20px,
-      transparent 20px,
-      transparent 32px
-    ),
-    linear-gradient(to top, #dcfce7, #bbf7d0);
+  background: #e5e7eb;
 }
 
 /* Landing */
@@ -683,7 +742,7 @@ body,
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #f97316;
+  color: #fb923c;
 }
 
 .os-landing-sub {
@@ -701,7 +760,7 @@ body,
   flex: 1;
   border-radius: 14px;
   border: 1px solid #e5e7eb;
-  background: radial-gradient(circle at top right, #dbeafe, #f9fafb);
+  background: radial-gradient(circle at top right, #e0f2fe, #f9fafb);
 }
 
 /* Feature grid */
@@ -771,7 +830,7 @@ body,
 }
 
 .os-pricing-card-highlight {
-  border-color: #f97316;
+  border-color: #fb923c;
   box-shadow: 0 16px 40px rgba(249, 115, 22, 0.18);
 }
 
@@ -798,726 +857,123 @@ body,
   font-size: 12px;
   color: #4b5563;
 }
-/* ========== SELECTOR DE PÁGINAS (LOVABLE STYLE) ========== */
-
-.os-page-selector-wrapper {
-  position: relative;
-}
-
-.os-page-selector-trigger {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.os-page-selector-trigger:hover {
-  background: #f9fafb;
-}
-
-.os-page-selector-trigger svg {
-  transition: 0.2s ease;
-}
-
-.os-page-selector-trigger svg.rotate {
-  transform: rotate(180deg);
-}
 
 /* ============================================================
-   TOPNAV — SISTEMA MODERNO PREMIUM
-   (Compatible con todo tu layout actual)
+   RESPONSIVE
 ============================================================ */
 
-/* ---------- CONTENEDOR GENERAL ---------- */
-
-.os-page-selector-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-/* ---------- TRIGGER DEL MENÚ DE PÁGINAS ---------- */
-
-.os-page-selector-trigger-modern {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 36px;
-  padding: 0 14px;
-  background: #ffffff;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  cursor: pointer;
-  font-size: 14px;
-  color: #1e293b;
-  transition: all 0.15s ease;
-}
-
-.os-page-selector-trigger-modern:hover {
-  background: #f8fafc;
-  border-color: #d1d5db;
-}
-
-.os-page-selector-label-modern {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 500;
-}
-
-/* ============================================================
-   🔶 MENÚ MODERNO DE PROYECTO — OSOMAGIC (Estilo LOVABLE PRO)
-   ============================================================ */
-
-.os-project-menu-modern {
-  position: absolute;
-  top: 52px;
-  left: 14px;
-  width: 240px;
-
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.08),
-    0 4px 10px rgba(0, 0, 0, 0.05);
-
-  padding: 10px;
-  z-index: 2000;
-
-  animation: osMenuFadeIn 0.12s ease-out;
-}
-
-/* Animación suave */
-@keyframes osMenuFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
+@media (max-width: 1100px) {
+  .os-sidebar {
+    flex-basis: 320px;
+    max-width: 320px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .os-bottom-form {
+    max-width: 320px;
   }
 }
 
-.os-project-menu-group {
-  margin-bottom: 10px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.os-project-menu-group:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-/* ITEM moderno */
-.os-project-menu-item-modern {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  background: transparent;
-  border: none;
-  outline: none;
-  
-  padding: 10px 12px;
-  border-radius: 8px;
-
-  font-size: 14px;
-  color: #1f2937;
-  text-align: left;
-
-  cursor: pointer;
-  transition: 0.14s ease;
-}
-
-/* Iconos SVG */
-.os-project-menu-item-modern svg {
-  width: 18px;
-  height: 18px;
-  color: #475569;
-}
-
-/* Hover */
-.os-project-menu-item-modern:hover {
-  background: #f8fafc;
-  color: #111827;
-}
-
-.os-project-menu-item-modern:hover svg {
-  color: #111827;
-}
-
-/* Activo (en caso de necesitarlo en el futuro) */
-.os-project-menu-item-modern-active {
-  background: #f1f5f9 !important;
-  font-weight: 600;
-  color: #0f172a !important;
-}
-
-/* ------------------------------------------------------------
-   SELECTOR DE PÁGINAS (mantiene tu estilo actual)
-   ------------------------------------------------------------ */
-
-.os-page-selector-wrapper {
-  position: relative;
-}
-
-.os-page-selector-menu {
-  position: absolute;
-  top: 42px;
-  right: 0;
-
-  width: 180px;
-
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.08),
-    0 4px 10px rgba(0, 0, 0, 0.05);
-
-  padding: 6px;
-  z-index: 2000;
-
-  animation: osMenuFadeIn 0.12s ease-out;
-}
-
-.os-page-selector-item {
-  width: 100%;
-  display: flex;
-  padding: 9px 10px;
-  gap: 10px;
-
-  border: none;
-  background: transparent;
-  border-radius: 8px;
-
-  font-size: 14px;
-  text-align: left;
-  cursor: pointer;
-
-  transition: 0.14s ease;
-}
-
-.os-page-selector-item:hover {
-  background: #f8fafc;
-}
-
-.os-page-selector-item-active {
-  background: #f1f5f9;
-  font-weight: 600;
-}
-
-/* Icono */
-.os-page-item-icon {
-  opacity: 0.8;
-}
-
-/* Texto */
-.os-page-item-name {
-  color: #1e293b;
-}
-/* ============================================================
- /* ============================================================
-   TOP BAR — ESTILO MODERNO LOVABLE
-============================================================ */
-
-.os-topbar {
-  height: 58px;
-  padding: 0 16px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  position: relative;
-  z-index: 50;
-}
-
-.os-logo-mark {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #fb923c, #f97316);
-  margin-right: 12px;
-}
-
-
-/* =======================
-   PROJECT BUTTON MODERNO
-======================= */
-
-.os-project-button-modern {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 12px;
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.os-project-button-modern:hover {
-  background: #f1f5f9;
-}
-
-.os-project-name-modern {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.rotate {
-  transform: rotate(180deg);
-}
-
-
-/* ======================
-   MENÚ DEL PROYECTO
-====================== */
-
-.os-project-menu-modern {
-  position: absolute;
-  top: 60px;
-  left: 45px;
-  width: 240px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  padding: 8px 0;
-  animation: fadeIn 0.2s ease;
-}
-
-.os-project-menu-group {
-  padding: 6px 0;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.os-project-menu-group:last-child {
-  border-bottom: none;
-}
-
-.os-project-menu-item-modern {
-  width: 100%;
-  padding: 9px 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  border: none;
-  background: none;
-  color: #111827;
-  transition: all 0.15s ease;
-}
-
-.os-project-menu-item-modern:hover {
-  background: #f8fafc;
-}
-
-
-/* ======================
-   ICON BUTTONS TOP RIGHT
-====================== */
-
-.os-icon-btn-modern {
-  height: 34px;
-  width: 34px;
-  border-radius: 8px;
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.os-icon-btn-modern:hover {
-  background: #eef2f6;
-}
-
-
-/* ======================
-   BUTTONS MODERN
-====================== */
-
-.os-btn-modern-outline {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
-  border-radius: 8px;
-  background: white;
-  border: 1px solid #d1d5db;
-  color: #111827;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 14px;
-}
-
-.os-btn-modern-outline:hover {
-  background: #f8f9fa;
-}
-
-.os-btn-modern-active {
-  border-color: #fb923c !important;
-  color: #fb923c !important;
-}
-
-
-/* ======================
-   SHARE / PUBLISH
-====================== */
-
-.os-btn-modern-soft {
-  display: flex;
-  height: 36px;
-  align-items: center;
-  gap: 6px;
-  padding: 0 14px;
-  border-radius: 8px;
-  background: #f1f5f9;
-  border: 1px solid #dbe2e8;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.os-btn-modern-soft:hover {
-  background: #e5ebf1;
-}
-
-.os-btn-modern-primary {
-  display: flex;
-  height: 36px;
-  align-items: center;
-  gap: 6px;
-  padding: 0 16px;
-  border-radius: 8px;
-  background: #fb923c;
-  border: 1px solid #f97316;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.os-btn-modern-primary:hover {
-  background: #f97316;
-}
-
-
-/* ======================
-   PAGE SELECTOR (MEJORADO)
-====================== */
-
-.os-page-selector-trigger-modern {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 12px;
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.os-page-selector-trigger-modern:hover {
-  background: #eef2f6;
-}
-
-.os-page-selector-menu-modern {
-  position: absolute;
-  top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  padding: 8px 0;
-  z-index: 20;
-}
-
-.os-page-selector-item-modern {
-  width: 100%;
-  padding: 9px 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  transition: all 0.15s ease;
-}
-
-.os-page-selector-item-modern:hover {
-  background: #f8fafc;
-}
-
-.os-page-selector-item-modern-active {
-  background: #fff7ed !important;
-  color: #fb923c !important;
-}
-
-
-/* ======================
-   VIEW MODE TOGGLE
-====================== */
-
-.os-view-toggle-modern {
-  display: flex;
-  gap: 6px;
-}
-
-.os-view-btn-modern {
-  height: 34px;
-  width: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  border: 1px solid #dbe2e8;
-  background: #f8fafc;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.os-view-btn-modern:hover {
-  background: #eef2f6;
-}
-
-.os-view-btn-modern-active {
-  background: #fff7ed;
-  border-color: #fb923c;
-  color: #f97316;
-}
-
-
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to { opacity: 1; transform: translateY(0); }
+@media (max-width: 900px) {
+  .os-main {
+    flex-direction: column;
+  }
+
+  .os-sidebar {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #1f2937;
+  }
+
+  .os-bottom-chat {
+    padding-right: 12px;
+  }
+
+  .os-bottom-form {
+    width: 100%;
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  .os-canvas {
+    padding-top: 12px;
+  }
 }
 /* ============================================
-   SIDEBAR NUEVO (1/5 ANCHO + COLAPSABLE)
+   FORZAR ESTRUCTURA CORRECTA — OSOMAGIC
 ============================================ */
 
-.os-sidebar {
-  width: 20vw;                /* 1/5 pantalla */
-  max-width: 380px;
-  min-width: 260px;
-  border-right: 1px solid #e5e7eb;
-  background: #fbf9f4;
+/* El main contiene solo 2 cosas: sidebar + canvas */
+.os-main {
   display: flex;
-  flex-direction: column;
-  transition: width 0.20s ease;
+  width: 100%;
+  height: calc(100vh - 56px); /* resta topbar */
   overflow: hidden;
 }
 
-.os-sidebar-collapsed {
-  width: 52px !important;      /* Sidebar colapsado estilo Lovable */
-}
-
-/* HEADER */
-.os-sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 10px;
-}
-
-.os-sidebar-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #475569;
-}
-
-/* BOTÓN COLAPSAR */
-.os-sidebar-collapse-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: #475569;
-}
-
-/* CHAT SCROLL */
-.os-sidebar-chat-scroll {
-  flex: 1;
-  overflow-y: auto;
-  padding-right: 6px;
-  padding-left: 4px;
-  margin-top: 4px;
-}
-
-/* FOOTER DEL SIDEBAR */
-.os-sidebar-footer {
-  display: flex;
-  gap: 8px;
-  padding: 8px 10px 10px 10px;
-}
-
-.os-pill-btn {
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  font-size: 12px;
-  padding: 4px 10px;
-  cursor: pointer;
-}
-  /* ============================================
-   CHAT BUBBLES LOVABLE
-============================================ */
-
-.os-chat-row {
-  display: flex;
-  margin-bottom: 10px;
-  font-size: 13px;
-}
-
-.os-chat-ai {
-  justify-content: flex-start;
-}
-
-.os-chat-user {
-  justify-content: flex-end;
-}
-
-/* AVATAR */
-.os-chat-avatar {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  margin-right: 6px;
-}
-
-.os-chat-avatar-user {
-  background: #fec9a3;
-  margin-left: 6px;
-}
-
-/* WRAPPER */
-.os-chat-bubble-wrapper {
-  max-width: 65%;
-}
-
-/* BUBBLES */
-.os-chat-bubble {
-  padding: 8px 12px 6px 12px;
-  border-radius: 14px;
-  position: relative;
-  line-height: 1.35;
-}
-
-.os-chat-bubble-ai {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-bottom-left-radius: 4px;
-}
-
-.os-chat-bubble-user {
-  background: #ffe8d6;
-  border: 1px solid #fed7aa;
-  border-bottom-right-radius: 4px;
-}
-
-/* TIMESTAMP */
-.os-chat-time {
-  font-size: 10px;
-  display: block;
-  margin-top: 4px;
-  opacity: 0.6;
-  text-align: right;
-}
-/* ============================================
-   BOTTOM PROMPT AJUSTADO 1/5 ANCHO
-============================================ */
-
-.os-bottom-chat {
-  height: 74px;
-  border-top: 1px solid #e5e7eb;
-  background: #fbf9f4;
-  display: flex;
-  align-items: center;
-  padding-left: 12px;
-}
-
-/* ANCHO EXACTO = ancho del sidebar */
-.os-bottom-form {
+/* Sidebar izquierda fijado */
+.os-sidepanel,
+.os-sidebar {
   width: 20vw;
   max-width: 380px;
   min-width: 260px;
+  height: 100%;
+  border-right: 1px solid #e5e7eb;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  background: #fbf9f4;
 }
 
-.os-bottom-input {
-  flex: 1;
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  padding: 8px 14px;
-  font-size: 13px;
-}
-/* ============================================
-   EVITAR QUE EL CHAT ENTRE EN EL CANVAS
-============================================ */
-
-.os-main {
-  display: flex;
-  overflow: hidden;
-}
-
+/* Área del canvas correcta */
 .os-canvas {
   flex: 1;
-  overflow: auto;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+  overflow: auto !important;
+  background: #f3f4f6;
 }
+
+/* Contenedor interior centrado */
+.os-canvas-inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* El rectángulo del canvas */
 .os-canvas-surface {
   background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e5e7eb;
   box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
-  margin-top: 32px;
-
-  min-height: 620px;
-  height: auto;
-
-  /* CORRECTO (parche final): */
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
 }
-/* ====== CANVAS SIZES (NECESARIAS PARA VISTA MÓVIL / DESKTOP) ====== */
 
+/* Tamaños desktop / móvil */
 .os-canvas-desktop {
   width: 1120px;
-  min-height: 680px;
+  min-height: 640px;
 }
 
 .os-canvas-mobile {
   width: 420px;
   min-height: 780px;
+}
+
+/* El prompt debajo del sidebar (1/5 ancho) */
+.os-bottom-chat {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 20vw;
+  max-width: 380px;
+  min-width: 260px;
+  height: 72px;
+  border-top: 1px solid #e5e7eb;
+  background: #fbf9f4;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
 }

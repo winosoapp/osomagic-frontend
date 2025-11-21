@@ -6,11 +6,12 @@ import { SendIcon } from "./Icons.jsx";
    BOTTOM CHAT — MISMO ANCHO QUE EL SIDEBAR
 ---------------------------------------------------- */
 const BottomChatPanel = () => {
-  const { sendPrompt } = useEditor();
+  const { sendPrompt, loading } = useEditor();
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (loading) return;             // ⬅ evitar doble envío
     if (!value.trim()) return;
     sendPrompt(value);
     setValue("");
@@ -24,10 +25,11 @@ const BottomChatPanel = () => {
           placeholder="Describe qué quieres que construya o modifique…"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          disabled={loading}
         />
 
-        <button type="submit" className="os-send-btn">
-          <SendIcon />
+        <button type="submit" className="os-send-btn" disabled={loading}>
+          {loading ? "•••" : <SendIcon />}
         </button>
       </form>
     </section>

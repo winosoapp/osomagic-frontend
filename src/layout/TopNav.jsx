@@ -16,10 +16,9 @@ import {
   PricingModernIcon,
 } from "./Icons.jsx";
 
-/* ============================================================
-   ICONOS MODERNOS PARA MENÚ DEL PROYECTO
-============================================================ */
-
+// ================================================
+// ICONOS INTERNOS
+// ================================================
 const IconSettings = () => (
   <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6">
     <circle cx="9" cy="9" r="7" />
@@ -66,18 +65,14 @@ const IconAppearance = () => (
 const IconHelp = () => (
   <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6">
     <circle cx="9" cy="9" r="7" />
-    <path
-      d="M7.5 7a1.5 1.5 0 013 0c0 1.5-1.5 1.5-1.5 3"
-      strokeLinecap="round"
-    />
+    <path d="M7.5 7a1.5 1.5 0 013 0c0 1.5-1.5 1.5-1.5 3" strokeLinecap="round" />
     <circle cx="9" cy="12.5" r="0.8" fill="currentColor" />
   </svg>
 );
 
-/* ============================================================
-   TOP NAV BAR — VERSIÓN FINAL PRO (Lovable Style)
-============================================================ */
-
+// ================================================
+// TOP NAV — VERSION PRO COMPLETA
+// ================================================
 const TopNav = () => {
   const {
     currentProject,
@@ -103,7 +98,7 @@ const TopNav = () => {
   return (
     <header className="os-topbar">
 
-      {/* IZQUIERDA — LOGO + PROJECT MENU */}
+      {/* IZQUIERDA */}
       <div className="os-topbar-left">
         <div className="os-logo-mark" />
 
@@ -115,11 +110,8 @@ const TopNav = () => {
           <ChevronDownIcon className={openProjectMenu ? "rotate" : ""} />
         </button>
 
-        {/* MENÚ DEL PROYECTO MODERNO */}
         {openProjectMenu && (
           <div className="os-project-menu-modern">
-
-            {/* Grupo 1 */}
             <div className="os-project-menu-group">
               <button className="os-project-menu-item-modern">
                 <IconDashboard />
@@ -132,46 +124,23 @@ const TopNav = () => {
               </button>
             </div>
 
-            {/* Grupo 2 */}
             <div className="os-project-menu-group">
-              <button className="os-project-menu-item-modern">
-                <IconSettings />
-                <span>Settings</span>
-              </button>
-
-              <button className="os-project-menu-item-modern">
-                <IconDuplicate />
-                <span>Duplicar proyecto</span>
-              </button>
-
-              <button className="os-project-menu-item-modern">
-                <IconRename />
-                <span>Renombrar</span>
-              </button>
-
-              <button className="os-project-menu-item-modern">
-                <IconAppearance />
-                <span>Apariencia</span>
-              </button>
+              <button className="os-project-menu-item-modern"><IconSettings /><span>Settings</span></button>
+              <button className="os-project-menu-item-modern"><IconDuplicate /><span>Duplicar proyecto</span></button>
+              <button className="os-project-menu-item-modern"><IconRename /><span>Renombrar</span></button>
+              <button className="os-project-menu-item-modern"><IconAppearance /><span>Apariencia</span></button>
             </div>
 
-            {/* Grupo 3 */}
             <div className="os-project-menu-group">
-              <button className="os-project-menu-item-modern">
-                <IconHelp />
-                <span>Ayuda</span>
-              </button>
+              <button className="os-project-menu-item-modern"><IconHelp /><span>Ayuda</span></button>
             </div>
-
           </div>
         )}
       </div>
 
-      {/* CENTRO — PREVIEW | SELECTOR | VIEW MODE */}
+      {/* CENTRO */}
       <div className="os-topbar-center">
         <div className="os-topbar-controls">
-
-          {/* PREVIEW */}
           <button
             className={
               "os-btn-modern-outline " +
@@ -183,12 +152,10 @@ const TopNav = () => {
             <span>Preview</span>
           </button>
 
-          {/* ICON BUTTONS */}
           <button className="os-icon-btn-modern"><CloudIcon /></button>
           <button className="os-icon-btn-modern"><CodeIcon /></button>
           <button className="os-icon-btn-modern"><ChartIcon /></button>
 
-          {/* SELECTOR DE PÁGINAS MODERNO */}
           <div className="os-page-selector-wrapper">
             <button
               className="os-page-selector-trigger-modern"
@@ -203,7 +170,7 @@ const TopNav = () => {
 
             {openPageMenu && (
               <div className="os-page-selector-menu-modern">
-                {pages.map(p => (
+                {pages.map((p) => (
                   <button
                     key={p.id}
                     className={
@@ -223,7 +190,6 @@ const TopNav = () => {
             )}
           </div>
 
-          {/* VISTA DESKTOP / MOBILE */}
           <div className="os-view-toggle-modern">
             <button
               className={
@@ -245,11 +211,10 @@ const TopNav = () => {
               <MobileIcon />
             </button>
           </div>
-
         </div>
       </div>
 
-      {/* DERECHA — SHARE + PUBLISH */}
+      {/* DERECHA */}
       <div className="os-topbar-right">
         <button className="os-btn-modern-soft">
           <ShareIcon />
